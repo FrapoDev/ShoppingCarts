@@ -1,5 +1,9 @@
 package main.java.shoppingcarts;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 import main.java.shoppingcarts.models.User;
 import main.java.shoppingcarts.models.Product;
 
@@ -10,6 +14,8 @@ import java.util.Vector;
 
 public class Application {
     public static void main(String[] args) {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("shoppingcarts");
+        EntityManager em = factory.createEntityManager();
 
         Scanner sc = new Scanner(System.in);
         User card = new User();
