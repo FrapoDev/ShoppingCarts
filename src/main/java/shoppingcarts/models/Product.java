@@ -12,11 +12,17 @@ import lombok.Setter;
 public class Product implements Comparable<Product> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true)
     private Long id;
-    @Column(name = "name_product")
+    @Column(name = "name_product",unique = true)
     private String nameProduct;
     @Column(name = "value_product")
     private double valueProduct;
+
+    public Product(String nameProduct, double valueProduct) {
+        this.nameProduct = nameProduct;
+        this.valueProduct = valueProduct;
+    }
 
     @Override
     public String toString() {
