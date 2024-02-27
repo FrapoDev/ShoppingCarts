@@ -1,4 +1,4 @@
-package com.github.shoppingcarts.main;
+package com.github.shoppingcarts;
 
 import com.github.shoppingcarts.models.CreditCard;
 import com.github.shoppingcarts.models.Product;
@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Vector;
 
-public class Main {
+public class Application {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
