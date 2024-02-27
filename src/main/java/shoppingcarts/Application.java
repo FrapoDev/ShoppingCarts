@@ -1,7 +1,7 @@
-package com.github.shoppingcarts;
+package main.java.shoppingcarts;
 
-import com.github.shoppingcarts.models.CreditCard;
-import com.github.shoppingcarts.models.Product;
+import main.java.shoppingcarts.models.User;
+import main.java.shoppingcarts.models.Product;
 
 import java.util.Collections;
 import java.util.List;
@@ -12,13 +12,13 @@ public class Application {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        CreditCard card = new CreditCard();
+        User card = new User();
         List<Product> listProduct = new Vector<>();
 
         System.out.println("Digite o limite do seu cartão: ");
         double limitCard = sc.nextDouble();
-        card.setLimit(limitCard);
-        System.out.println("Limite de R$ " + card.getLimit() + " estabelecido.");
+        card.setLimitCard(limitCard);
+        System.out.println("Limite de R$ " + card.getLimitCard() + " estabelecido.");
 
         boolean loop = true;
         while (loop) {
@@ -26,7 +26,7 @@ public class Application {
             String name = sc.next();
             System.out.println("Qual o valor desse produto: " + name);
             double value = sc.nextInt();
-            if (limitCard < value){
+            if (limitCard < value) {
                 System.out.println("Sem limite!");
                 break;
             }
@@ -52,9 +52,9 @@ public class Application {
         String finalMessage = String.format("""
                 Lista de compras:
                 %s
-                
+                                
                 Limite do cartão : %s
-                """,listProduct,limitCard);
+                """, listProduct, limitCard);
         System.out.println(finalMessage);
     }
 }

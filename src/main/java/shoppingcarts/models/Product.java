@@ -1,24 +1,22 @@
-package com.github.shoppingcarts.models;
+package main.java.shoppingcarts.models;
 
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class Product implements Comparable<Product> {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(name = "name_product")
     private String nameProduct;
+    @Column(name = "value_product")
     private double valueProduct;
-
-    public String getNameProduct() {
-        return nameProduct;
-    }
-
-    public void setNameProduct(String nameProduct) {
-        this.nameProduct = nameProduct;
-    }
-
-    public double getValueProduct() {
-        return valueProduct;
-    }
-
-    public void setValueProduct(double valueProduct) {
-        this.valueProduct = valueProduct;
-    }
 
     @Override
     public String toString() {
@@ -27,7 +25,7 @@ public class Product implements Comparable<Product> {
 
     @Override
     public int compareTo(Product outherProduct) {
-        if (this.valueProduct > outherProduct.valueProduct){
+        if (this.valueProduct > outherProduct.valueProduct) {
             return 1;
         } else if (outherProduct.valueProduct < this.valueProduct) {
             return 0;
